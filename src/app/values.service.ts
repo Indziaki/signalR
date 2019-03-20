@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ValuesService {
 
-  private api: string = 'https://localhost:44389/api/values';
+  private api: string = 'http://signalpoke.azurewebsites.net/api/values';
 
   constructor(private http: HttpClient) { }
 
@@ -15,5 +15,8 @@ export class ValuesService {
   }
   deleteMessage(id){
     return this.http.delete(`${this.api}/${id}`);
+  }
+  getNumbers(){
+    return this.http.get(this.api);
   }
 }
